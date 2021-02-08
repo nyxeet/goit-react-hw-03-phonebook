@@ -17,7 +17,19 @@ class App extends React.Component {
         contacts: defaultState,
         filter: '',
     }
-
+    componentDidMount() {
+        const contacts = localStorage.getItem('contacts')
+        if (contacts) {
+            this.setState({
+                contacts: JSON.parse(contacts)
+            })
+        }
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.contacts !== this.state.contacts) {
+            localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+        }
+    }
     addContact = (name, number) => {
 
         const contact = {
