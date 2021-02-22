@@ -3,8 +3,8 @@ import './ContactsEditor.css';
 
 class ContactsEditor extends Component {
   state = {
-      text: '',
-      tel: '',
+    text: '',
+    tel: '',
   };
 
   handleChange = e => {
@@ -15,9 +15,9 @@ class ContactsEditor extends Component {
 
   handleTelChange = e => {
     this.setState({
-        tel: e.target.value,
-    })
-  }
+      tel: e.target.value,
+    });
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -37,11 +37,16 @@ class ContactsEditor extends Component {
             type="text"
             value={this.state.text}
             onChange={this.handleChange}
-            />
+          />
         </label>
         <label className="TaskEditor-label">
-            Tel
-            <input className="TaskEditor-input" type="tel" value={this.state.tel} onChange={ this.handleTelChange}/>        
+          Tel
+          <input
+            className="TaskEditor-input"
+            type="tel"
+            value={this.state.tel}
+            onChange={this.handleTelChange}
+          />
         </label>
 
         <button type="submit" className="TaskEditor-button">
